@@ -279,7 +279,9 @@ export default function SettingsPanel({
           <Box>
             <Typography sx={{ fontWeight: 600 }}>Theme mode</Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {mode === 'dark' ? 'Dark mode is enabled' : 'Light mode is enabled'}
+              {mode === 'dark'
+                ? 'Dark mode is enabled'
+                : 'Light mode is enabled'}
             </Typography>
           </Box>
           <Switch
