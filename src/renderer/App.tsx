@@ -11,9 +11,6 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import BookIcon from '@mui/icons-material/Book';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import SortIcon from '@mui/icons-material/Sort';
-import MinimizeIcon from '@mui/icons-material/Minimize';
-import CropSquareIcon from '@mui/icons-material/CropSquare';
-import CloseIcon from '@mui/icons-material/Close';
 import {
   AppBar,
   Box,
@@ -113,17 +110,7 @@ function Shell({
 
   const isDark = mode === 'dark';
 
-  const handleMinimize = () => {
-    window.electron?.ipcRenderer?.sendMessage('window-minimize');
-  };
-
-  const handleMaximize = () => {
-    window.electron?.ipcRenderer?.sendMessage('window-maximize');
-  };
-
-  const handleClose = () => {
-    window.electron?.ipcRenderer?.sendMessage('window-close');
-  };
+  // Native window controls are used; renderer window buttons removed.
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
@@ -151,17 +138,7 @@ function Shell({
           >
             {activeTitle}
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-            <IconButton size="small" onClick={handleMinimize} color="inherit">
-              <MinimizeIcon sx={{ fontSize: '18px' }} />
-            </IconButton>
-            <IconButton size="small" onClick={handleMaximize} color="inherit">
-              <CropSquareIcon sx={{ fontSize: '16px' }} />
-            </IconButton>
-            <IconButton size="small" onClick={handleClose} color="inherit">
-              <CloseIcon sx={{ fontSize: '18px' }} />
-            </IconButton>
-          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }} />
         </Toolbar>
       </AppBar>
       <AppSidebar isDark={isDark} items={navigation} />
